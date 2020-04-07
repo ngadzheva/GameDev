@@ -3,10 +3,9 @@ using static UnityEngine.Mathf;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour {
-
 	[SerializeField]
 	[Range(0, 5)]
-	private float moveSpeed = 2;
+	private float moveSpeed = 3;
 
 	[SerializeField]
 	[Range(0.1f, 2)]
@@ -14,8 +13,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	private bool isCrouching = false;
 	private bool isJumping = false;
-	private bool isGrowing = false;
 	private readonly float movementThreshold = 0.01f;
+	private int fallSpeed = 30;
 	private Vector2 velocity = Vector2.zero;
 
 	[SerializeField]
@@ -71,6 +70,22 @@ public class PlayerMovement : MonoBehaviour {
 			animator.SetBool("IsJumping", false);
 			velocity.y = 0;
 		}
+
+		if (collision.gameObject.CompareTag("Block")) {
+			var normal = collision.contacts[0].normal;
+			if (normal.y > 0) {
+				isJumping = false;
+				velocity.y = 0;
+			}
+
+			animator.SetBool("IsJumping", false);
+		}
+	}
+
+	private void OnCollisionExit2D(Collision2D collision) {
+		if (collision.gameObject.CompareTag("Block")) {
+			velocity.y -= fallSpeed * Time.deltaTime;
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
@@ -78,9 +93,8 @@ public class PlayerMovement : MonoBehaviour {
 			bool isMushroomMoving = mushroomAnimator.GetBool("IsMoving");
 
 			if (isMushroomMoving) {
-				isGrowing = true;
+				animator.runtimeAnimatorController = Resources.Load("Animations/Mario/Big Mario/BigMario") as RuntimeAnimatorController;
 				Destroy(mushroom);
-				animator.SetBool("IsGrowing", isGrowing);
 			}
 		}
 	}

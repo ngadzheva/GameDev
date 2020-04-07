@@ -36,11 +36,10 @@ public class BoxMovement : MonoBehaviour {
             if (normal.y > 0) {
                 isMoving = true;
                 isMushroomMoving = true;
-                animator.SetBool("IsMoving", isMoving);
-
                 if (mushroom) {
                     mushroomAnimator.SetBool("IsMoving", isMushroomMoving);
                 }
+                animator.SetBool("IsMoving", isMoving);
             }
         }
     }

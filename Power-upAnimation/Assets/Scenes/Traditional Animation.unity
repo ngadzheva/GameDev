@@ -234,8 +234,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &742160821
-BoxCollider2D:
+--- !u!70 &742160821
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -247,19 +247,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.2}
-    newSize: {x: 0.16, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14, y: 0.2}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.0016072989, y: -0.000000059604645}
+  m_Size: {x: 0.13749814, y: 0.2064324}
+  m_Direction: 0
 --- !u!50 &742160822
 Rigidbody2D:
   serializedVersion: 4
@@ -293,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17972b83892e080489457dce099b6ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 4
   gravity: 2
   jumpKey: 273
   crouchKey: 274
@@ -587,7 +577,7 @@ GameObject:
   - component: {fileID: 1290610946}
   m_Layer: 0
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -605,7 +595,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0026562214, y: -0.0015290454}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -616,7 +606,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.15}
+  m_Size: {x: 0.16258478, y: 0.1530581}
   m_EdgeRadius: 0
 --- !u!114 &1290610946
 MonoBehaviour:
