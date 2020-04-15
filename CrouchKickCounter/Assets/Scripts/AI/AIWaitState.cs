@@ -6,25 +6,17 @@ public class AIWaitState : StateMachineBehaviour {
 	private Transform playerTransform;
 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		float rand = Random.value;
     GameObject player = GameObject.FindWithTag("Player");
 
-    if (player == null) {
-      Debug.LogError("No GameObject with the \"Player\" tag found");
+    Animator playerAnimator = player.GetComponent<Animator>();
+
+    if (playerAnimator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Monk_Punch")) {
+      animator.SetTrigger("ShouldCrouch");
     }
     else {
-      Animator playerAnimator = player.GetComponent<Animator>();
-
-      if (playerAnimator.GetCurrentAnimatorStateInfo(layerIndex).IsName("Monk_Punch")) {
-        if (rand <= 0.8f) {
-          animator.SetTrigger("ShouldCrouch");
-        }
-      }
-      else {
-        movementController = animator.GetComponent<MovementController>();
-				movementController.SetHorizontalMoveDirection(0);
-				playerTransform = player.transform;
-      }
+      movementController = animator.GetComponent<MovementController>();
+      movementController.SetHorizontalMoveDirection(0);
+      playerTransform = player.transform;
     }
 	}
 
