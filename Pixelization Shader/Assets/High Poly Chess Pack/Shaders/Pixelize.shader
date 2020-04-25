@@ -3,9 +3,12 @@
   Properties
   {
     _MainTex ("Texture", 2D) = "white" {}
-    _PixelWidth("Pixel Width", Float) = 64
-    _PixelHeight("Pixel Height", Float) = 64
+    _PixelWidth("Pixel Width", Float) = 5.0
+    _PixelHeight("Pixel Height", Float) = 5.0
+    _ScreenWidth("Screen Width", float) = 320.0
+	  _ScreenHeight("Screen Height", float) = 240.0
   }
+
   SubShader
   {
     Cull Off ZWrite Off ZTest Always
@@ -41,16 +44,18 @@
       sampler2D _MainTex;
       float _PixelWidth;
       float _PixelHeight;
+      float _ScreenWidth;
+      float _ScreenHeight;
 
       fixed4 frag (v2f i) : SV_Target
       {
-        float onePixelSizeX = 1.0f / _PixelWidth;
-        float onePixelSizeY = 1.0f / _PixelHeight;
+        float onePixelSizeX = _ScreenWidth / _PixelWidth;
+        float onePixelSizeY = _ScreenHeight / _PixelHeight;
 
         float2 uv = i.uv;
 
-        uv.x = (int)(uv.x / onePixelSizeX) * onePixelSizeX;
-        uv.y = (int)(uv.y / onePixelSizeY) * onePixelSizeY;
+        uv.x = (int)(onePixelSizeX * uv.x) / onePixelSizeX;
+        uv.y = (int)(onePixelSizeY * uv.y) / onePixelSizeY;
 
         fixed4 col = tex2D(_MainTex, uv);
         return col;

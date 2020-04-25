@@ -57,6 +57,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CellSizeX: 4
+    - _CellSizeY: 4
     - _Columns: 100
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -70,10 +72,12 @@ Material:
     - _Parallax: 0.02
     - _PixelCountU: 73
     - _PixelCountV: 64.6
-    - _PixelHeight: 100
-    - _PixelWidth: 100
+    - _PixelHeight: 5
+    - _PixelWidth: 5
     - _PixexCountU: 61.95
     - _Rows: 100
+    - _ScreenHeight: 768
+    - _ScreenWidth: 1024
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
