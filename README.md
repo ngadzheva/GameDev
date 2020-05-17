@@ -7,3 +7,5 @@ This repository contains solutions of the following game problems:
 3. Power-up Animation
 4. Crouch Kick Conter
 5. Healthbar
+6. Pixelization Practice
+7. Doom Coding Practice
