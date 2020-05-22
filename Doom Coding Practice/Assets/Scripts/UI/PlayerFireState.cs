@@ -9,7 +9,6 @@ public class PlayerFireState : StateMachineBehaviour {
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
             if (hit.collider.gameObject.tag == "Zombieman") {
-                Debug.Log("Shot");
                 Health zombieHealth = hit.collider.gameObject.GetComponent<Health>();
                 zombieHealth.TakeDamage(hit.collider.gameObject);
             }

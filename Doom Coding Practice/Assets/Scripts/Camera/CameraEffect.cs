@@ -14,11 +14,10 @@ public class CameraEffect : MonoBehaviour {
     void FixedUpdate() {
         int playerHealth = playerAnimator.GetInteger("Health");
 
-        if (playerHealth > 0 && playerHealth < 4) {
-            if (!vignette.enabled) { vignette.enabled = true; }
-            else { vignette.enabled = false; }
-        } else if (playerHealth == 0) {
+        if (playerHealth > 0 && playerHealth < 40) {
             vignette.enabled = true;
+        } else if (playerHealth == 0) {
+            vignette.enabled = false;
         }
     }
 }

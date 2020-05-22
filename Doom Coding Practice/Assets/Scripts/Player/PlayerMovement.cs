@@ -37,16 +37,6 @@ public class PlayerMovement : MonoBehaviour {
         agent.destination = transform.position
             + (forwardDirection  * Input.GetAxisRaw("Vertical")
             +  sidewaysDirection * Input.GetAxisRaw("Horizontal")).normalized;
-
-        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        // RaycastHit hit;
-        // if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
-        //     Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
-        //     Debug.Log(hit.collider.gameObject.name);
-        //     if (hit.collider.gameObject.tag == "Zombieman") {
-        //         Debug.Log("Success");
-        //     }
-        // }
     }
 
     private void OnEnable() {

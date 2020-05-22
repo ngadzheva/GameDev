@@ -3,7 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        // _Color("Color", Color) = (1, 0, 0, 1)
+        _Color("Color", Color) = (1, 0, 0, 1)
         _VRadius("Vignette Radius", Range(0.0, 1.0)) = 1.0
         _VSoft("Vignette Softness", Range(0.0, 1.0)) = 0.5
     }
@@ -48,12 +48,11 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 float4 base = tex2D(_MainTex, i.uv);
-                base = base;
 
                 float distFromCenter = distance(i.uv.xy, float2(0.5, 0.5));
                 float vignette = smoothstep(_VRadius, _VRadius - _VSoft, distFromCenter);
 
-                base = saturate(base * vignette);
+                base = saturate(base + _Color * (1 - vignette));
 
                 return base;
             }

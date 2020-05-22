@@ -3,13 +3,13 @@ using static UnityEngine.Mathf;
 
 public class Health : MonoBehaviour {
 	[SerializeField]
-	private int health = 9;
+	private int health = 100;
 
 	private PlayerPointSystem healthPoints;
 
 	public void TakeDamage(GameObject gameObject) {
 		Animator animator = gameObject.GetComponent<Animator>();
-		int damage = 1;
+		int damage = 10;
 
 		health = Max(health - damage, 0);
 		animator.SetInteger("Health", health);
