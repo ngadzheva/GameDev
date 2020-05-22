@@ -9,3 +9,4 @@ This repository contains solutions of the following game problems:
 5. Healthbar
 6. Pixelization Practice
 7. Doom Coding Practice
+8. Game Feel
